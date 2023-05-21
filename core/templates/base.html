@@ -23,22 +23,25 @@
           </button>
           <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a class="nav-link active me-2" aria-current="page" href="#">Home</a>
-              <a class="nav-link me-2" href="#">About Us</a>
-              <a class="nav-link me-2" href="#">Services</a>
-              <a class="nav-link me-2" href="#">Image Gallery</a>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">About Us</a></li>
-                  <li><a class="dropdown-item" href="#">Another action</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="#">Something else here</a></li>
-                </ul>
-              </li>
-              <a class="nav-link disabled me-2" href="#" tabindex="-1" aria-disabled="">Contact</a>
+              {% for nav in nav_obj %}
+                {% if nav.sub_menu.count == 0 %}
+                  <a class="nav-link active me-2" aria-current="page" href="{{nav.page.urls}}">{{nav.title|capfirst}}</a>
+                {% else %}
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{nav.title|capfirst}}
+                  </a>
+                  
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    {% for menu in nav.sub_menu.all %}
+                    <li><a class="dropdown-item" href="{{menu.urls}}">{{menu.title}}</a></li>
+                    {% endfor %}
+                  </ul>
+                </li>
+                {% endif %}
+              {% endfor %}
+
+              
             </div>
           </div>
         </div>
