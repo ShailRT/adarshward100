@@ -1,0 +1,26 @@
+html {
+    font-family: 'Poppins' !important;
+    font-size: 14px !important;
+    line-height: 1.42857143;
+    color: #333;
+    cursor: default;
+}
+.slider-img{
+    height: 500px;
+    width: 100%;
+
+}
+.header-bottom {
+    padding: 6px 0 6px 0;
+    border-top: 1px solid #edecec;
+    background: #eee;
+    font-size: 12px !important;
+}
+.header-bottom a {
+    color: #000;
+    display: inline-block;
+    padding: 0px 0px;
+    margin: 0px 6px;
+    text-decoration: none;
+    float: right;
+}
