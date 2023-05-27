@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<header>
+  <div class="container px-4 text-center mb-5 mt-5">
+    <h1 class="fw-bolder mb-5">About Us</h1>
+    <p class="lead">{{page.content|safe}}</p>
+  </div>
+</header>
+<!-- About section-->
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row" style="justify-content: center;">
+    <!-- Team Member 1 -->
+    <div class="col-xl-3 col-md-6 mb-4 mt-5">
+      <div>
+        <img src="https://source.unsplash.com/TMgQMXoglsM/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Team Member</h5>
+          <div class="card-text text-black-50">Web Developer</div>
+        </div>
+      </div>
+    </div>
+    <!-- Team Member 2 -->
+    <div class="col-xl-3 col-md-6 mb-4 mt-5">
+      <div>
+        <img src="https://source.unsplash.com/9UVmlIb0wJU/500x350" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-0">Team Member</h5>
+          <div class="card-text text-black-50">Web Developer</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.container -->
+{% endblock content %}

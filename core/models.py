@@ -29,3 +29,8 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+class Author(models.Model):
+    name = models.CharField(max_length=120)
+    bio = models.TextField()
+    image = models.ImageField(upload_to='author/')
