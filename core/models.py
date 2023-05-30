@@ -17,11 +17,29 @@ class Navbar(models.Model):
     def __str__(self):
         return self.title
 
+
+class Author(models.Model):
+    name = models.CharField(max_length=120)
+    bio = models.TextField()
+    image = models.ImageField(upload_to='author/')
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=120)
+    on_gallery = models.BooleanField(default=False)
+    image = models.ImageField(upload_to='gallery/')
+
+    class Meta:
+        ordering = ['on_gallery']
+
+    def __str__(self):
+        return self.title
+    
 class News(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField()
     image = models.ImageField(upload_to='news/')
-    content = RichTextField()
+    author = models.ForeignKey(Author, on_delete=models.CASCADE)
+    description = RichTextField()
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -29,8 +47,3 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
-
-class Author(models.Model):
-    name = models.CharField(max_length=120)
-    bio = models.TextField()
-    image = models.ImageField(upload_to='author/')

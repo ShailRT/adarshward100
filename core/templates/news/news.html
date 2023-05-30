@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container pb50 mt-5">
+  <div class="row">
+    <div class="col-md-9">
+      <article>
+        <img src="{{news.image.url}}" alt class="img-fluid mb30 w-100 p-0" />
+        <div class="post-content">
+          <h3>{{news.title}}</h3>
+          <ul class="post-meta list-inline">
+            <li class="list-inline-item">
+              <i class="fa fa-user-circle-o"></i> <a href="#">{{news.author.name}}</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-calendar-o"></i> <a href="#">{{news.date_created}}</a>
+            </li>
+            <li class="list-inline-item">
+              <i class="fa fa-tags"></i> <a href="#">{{news.category}}</a>
+            </li>
+          </ul>
+          {{news.description|safe}}
+          <hr class="mb40" />
+          <h4 class="text-uppercase font500">About Author</h4>
+          <div class="media mb40">
+            <i class="d-flex mr-3 fa fa-user-circle fa-5x text-primary"></i>
+            <div class="media-body">
+              <h5 class="mt-0 font700">{{news.author.name}}</h5>
+              {{news.author.bio}}
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+    <div class="col-md-3">
+      <div>
+        <h4 class="sidebar-title">Latest News</h4>
+        <ul class="list-unstyled">
+          <li class="media">
+            <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar1.png"
+              alt="Generic placeholder image" />
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">
+                <a href="#">Lorem ipsum dolor sit amet</a>
+              </h5>
+              April 05, 2017
+            </div>
+          </li>
+          <li class="media my-4">
+            <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar2.png"
+              alt="Generic placeholder image" />
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">
+                <a href="#">Lorem ipsum dolor sit amet</a>
+              </h5>
+              Jan 05, 2017
+            </div>
+          </li>
+          <li class="media">
+            <img class="d-flex mr-3 img-fluid" width="64" src="https://bootdey.com/img/Content/avatar/avatar3.png"
+              alt="Generic placeholder image" />
+            <div class="media-body">
+              <h5 class="mt-0 mb-1">
+                <a href="#">Lorem ipsum dolor sit amet</a>
+              </h5>
+              March 15, 2017
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

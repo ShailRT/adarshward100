@@ -1,36 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Image Gallery </title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" href="/static/assets/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="/static/assets/css/stylegallery.css">
-</head>
-<body>
-  
+{% extends 'base.html' %}
+{% load static %}
 
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/stylegallery.css' %}">
+<header>
+   <div class="container px-4 text-center mt-5">
+     <h1 class="fw-bolder mb-5">Adarsh Ward Gallery</h1>
+     <p class="lead">{{page.content|safe}}</p>
+   </div>
+ </header>
   <section class="gallery min-vh-100">
-     <div class="container-lg">
+   
+     <div class="container-lg bg-light">
         <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
+         {% for gal in gallery %}
            <div class="col">
-              <img src="/static/assets/img/gallery/1.jpg" class="gallery-item" alt="gallery">
+              <img src="{{gal.image.url}}" class="gallery-item" alt="gallery">
            </div>
-           <div class="col">
-              <img src="/static/assets/img/gallery/2.jpg" class="gallery-item" alt="gallery">
-           </div>
-           <div class="col">
-              <img src="/static/assets/img/gallery/3.jpg" class="gallery-item" alt="gallery">
-           </div>
-           <div class="col">
-              <img src="/static/assets/img/gallery/4.jpg" class="gallery-item" alt="gallery">
-           </div>
-           <div class="col">
-              <img src="/static/assets/img/gallery/5.jpg" class="gallery-item" alt="gallery">
-           </div>
-           <div class="col">
-              <img src="/static/assets/img/gallery/6.jpg" class="gallery-item" alt="gallery">
-           </div>
+         {% endfor %}
         </div>
      </div>
   </section>
@@ -40,7 +27,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+        <h5 class="modal-title" id="exampleModalLabel">Adarsh Ward 100</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -50,8 +37,6 @@
   </div>
 </div>
 
+<script src="{% static 'assets/js/gallery-main.js'%}"></script>
 
-<script src="/static/assets/js/bootstrap.bundle.min.js"></script>
-<script src="/static/assets/js/main.js"></script>
-</body>
-</html>
+{% endblock content %}
