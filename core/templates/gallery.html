@@ -15,7 +15,7 @@
         <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
          {% for gal in gallery %}
            <div class="col">
-              <img src="{{gal.image.url}}" class="gallery-item" alt="gallery">
+              <img src="{{gal.image.url}}" class="gallery-item" name="{{gal.title}}" alt="gallery">
            </div>
          {% endfor %}
         </div>
@@ -27,7 +27,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Adarsh Ward 100</h5>
+        <h5 class="modal-title" id="exampleModalLabel"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

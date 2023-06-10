@@ -295,3 +295,16 @@ Template sidebar
 .container{
     margin-top: 15%;
 }
+
+.about-img{
+  height: 230px;
+}
+
+.about-card{
+  height: 510px;
+}
+
+.news-img{
+  max-height: 500px;
+  min-height: 300px;
+}

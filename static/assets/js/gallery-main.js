@@ -8,3 +8,8 @@
    	  myModal.show();
    }
  })
+
+// gallery
+let imgAltAttr = document.querySelector('.gallery-item').getAttribute('name');
+let imgAltTxt = document.querySelector('.modal-title');
+imgAltTxt.textContent = imgAltAttr;

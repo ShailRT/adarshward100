@@ -31,21 +31,22 @@
           </div>
           <hr class="mb40" />
           <h4 class="mb40 text-uppercase font500">Post a comment</h4>
-          <form role="form">
+          <form role="form" method="POST" action=".">
+            {% csrf_token %}
             <div class="form-group">
               <label>Name</label>
-              <input type="text" class="form-control" placeholder="John Doe" />
+              <input type="text" name="name" class="form-control" placeholder="John Doe" />
             </div>
             <div class="form-group">
               <label>Email</label>
-              <input type="email" class="form-control" placeholder="john@doe.com" />
+              <input type="email" name="email" class="form-control" placeholder="john@doe.com" />
             </div>
             <div class="form-group">
               <label>Comment</label>
-              <textarea class="form-control" rows="5" placeholder="Comment"></textarea>
+              <textarea class="form-control" rows="5" placeholder="Comment" name="message"></textarea>
             </div>
             <div class="clearfix float-right">
-              <button type="button" class="btn btn-primary btn-lg">
+              <button type="submit" name="submit" class="btn btn-primary btn-lg">
                 Submit
               </button>
             </div>

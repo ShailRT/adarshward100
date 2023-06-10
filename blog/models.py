@@ -18,3 +18,11 @@ class Blog(models.Model):
         return self.title 
     
     
+class Message(models.Model):
+    name = models.CharField(max_length=120)
+    email = models.CharField(max_length=120)
+    message = models.TextField()
+    blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.email
