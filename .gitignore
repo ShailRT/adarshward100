@@ -1,3 +1,6 @@
+__pycache__/
+*.py[cod]
+
 Scripts
 pyvenv.cfg
 Lib

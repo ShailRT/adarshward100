@@ -15,7 +15,7 @@
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="{% static 'assets/img/home-slider/image1.jpg' %}" class="d-block slider-img" alt="...">
+            <img src="{% static 'assets/img/home-slider/img4.jpeg' %}" class="d-block slider-img" alt="...">
         </div>
         <div class="carousel-item">
             <img src="{% static 'assets/img/home-slider/image2.jpg' %}" class="d-block slider-img" alt="...">
@@ -66,12 +66,11 @@
                 <div class="tab-pane fade" id="ex1-tabs-2" role="tabpanel" aria-labelledby="ex1-tab-2">
                     <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
                         <ul class="list-group">
-                            <li class="list-group-item"><a href="">No Announcemnts</a></li>
+                            {% for a in anouncements%}
+                            <li class="list-group-item"><a href="{{a.file.url}}">{{a.title}}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
-                </div>
-                <div class="tab-pane fade" id="ex1-tabs-3" role="tabpanel" aria-labelledby="ex1-tab-3">
-                    Tab 3 content
                 </div>
             </div>
             <!-- Tabs content -->

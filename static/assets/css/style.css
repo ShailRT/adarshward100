@@ -308,3 +308,8 @@ Template sidebar
   max-height: 500px;
   min-height: 300px;
 }
+
+.thumbnail-news{
+  width: 300px !important;
+  height: 200px !important;
+}

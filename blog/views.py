@@ -3,7 +3,6 @@ from .models import Blog, Message
 from .forms import CommentForm
 
 def blog_detail(request, pk):
-    blog = Blog.objects.filter(slug=pk).first()
     if request.method == "POST":
         name = request.POST['name']
         email = request.POST['email']
@@ -13,7 +12,10 @@ def blog_detail(request, pk):
         return redirect('blog-detail', pk)
     
     else:
+        blog = Blog.objects.filter(slug=pk).first()
+        similar_blogs = Blog.objects.all()[:2]
         context = {
-            'blog': blog
+            'blog': blog,
+            'similar_blogs': similar_blogs,
         }
         return render(request, 'blog.html', context)
