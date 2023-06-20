@@ -1,5 +1,5 @@
 from django.db import models
-from core.models import Author
+from core.models import Author, Gallery
 from ckeditor.fields import RichTextField
 
 class Blog(models.Model):
@@ -9,6 +9,7 @@ class Blog(models.Model):
     image = models.ImageField()
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = RichTextField()
+    gallery = models.ManyToManyField(Gallery, related_name='blog_gallery', null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     
     class Meta:

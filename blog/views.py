@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Blog, Message
 from .forms import CommentForm
+from django.core.paginator import Paginator
 
 def blog_detail(request, pk):
     if request.method == "POST":
@@ -19,3 +20,20 @@ def blog_detail(request, pk):
             'similar_blogs': similar_blogs,
         }
         return render(request, 'blog.html', context)
+    
+def blog_list(request):
+    blogs = Blog.objects.all()
+    paginator = Paginator(blogs, 6)
+    page_number = request.GET.get('page')
+    try:
+        page_obj = paginator.get_page(page_number)
+    except PageNotAnInteger:
+        page_obj = paginator.page(1)
+    except EmptyPage:
+        page_obj = paginator.page(paginator.num_pages)
+
+    context = {
+        'page_obj' : page_obj,
+    }
+
+    return render(request, 'blog-list.html', context)

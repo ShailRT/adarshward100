@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="blog-listing p-3 gray-bg">
+      <div class="container-fluid my-3">
+        <div class="row align-items-start">
+          <div class="col-lg-12 m-15px-tb">
+            <div class="row">
+              {% for blog in page_obj %}
+              <div class="col-sm-6">
+                <div class="blog-grid">
+                  <div class="blog-img">
+                    <div class="date">
+                      <label>{{blog.date_created}}</label>
+                    </div>
+                    <a href="/blog/{{blog.slug}}">
+                      <img class="mb-2"
+                        src="{{blog.image.url}}"
+                        title
+                        alt
+                        width="450"
+                        height="200"
+                      />
+                    </a>
+                  </div>
+                  <div class="blog-info">
+                    <h5>
+                      <a href="/blog/{{blog.slug}}"
+                        >{{blog.title}}</a
+                      >
+                    </h5>
+                    <p>
+                      {{blog.description|safe|slice:":100"}}
+                    </p>
+                    <div class="btn-bar">
+                      <a href="/blog/{{blog.slug}}" class="px-btn-arrow">
+                        <span>Read More</span>
+                        <i class="arrow"></i>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 text-center">
+          <div class="pagination-area text-center text-black">
+              {%if colleges.has_previous %} 
+              <a href="?page={{colleges.previous_page_number}}&search_include={{search_include}}&type_include={{type_include}}&state_include={{state_include}}&city_include={{city_include}}" class="prev page-numbers">
+                  <i class="bx bx-chevron-left"></i>
+              </a>
+              {% endif %}
+              <span class="page-numbers current" aria-current="page">1</span>
+              {%if colleges.has_next %}
+              <a href="?page={{colleges.next_page_number}}&search_include={{search_include}}&type_include={{type_include}}&state_include={{state_include}}&city_include={{city_include}}" class="next page-numbers">
+                  <i class="bx bx-chevron-right"></i>
+              </a> 
+              {% endif %}
+          </div>
+      </div>
+      </div>
+    </section>
+{% endblock content %}
