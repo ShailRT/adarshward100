@@ -5,12 +5,12 @@
   <div class="row">
     <div class="col-md-9 mb40">
       <article>
-        <img src="{{blog.image.url}}" alt class="img-fluid mb30 w-100 p-0" />
+        <img src="{{blog.image.url}}" alt class="img-fluid mb30 w-100 p-0 news-img" />
         <div class="post-content">
           <h3>{{blog.title}}</h3>
           <ul class="post-meta list-inline">
             <li class="list-inline-item">
-              <i class="fa fa-user-circle-o"></i> <a href="#">{{blog.author.name}}</a>
+              <i class="fa fa-user-circle-o"></i> <a href="/profile/{{blog.author.user.user.username}}">{{blog.author.title}}</a>
             </li>
             <li class="list-inline-item">
               <i class="fa fa-calendar-o"></i> <a href="#">{{blog.date_created}}</a>
@@ -20,15 +20,37 @@
             </li>
           </ul>
           {{blog.description|safe}}
+          <div class="container-fluid">
+            <div class="row d-flex">
+              {% for gal in blog.gallery.all %}
+              <div class="col-4">
+              <img src="{{gal.image.url}}" class="img-thumbnail thumbnail-news me-2" alt="...">
+              </div>
+              {% endfor %}
+            </div>
+          </div>
           <hr class="mb40" />
           <h4 class="mb40 text-uppercase font500">About Author</h4>
           <div class="media mb40">
-            <i class="d-flex mr-3 fa fa-user-circle fa-5x text-primary"></i>
-            <div class="media-body">
-              <h5 class="mt-0 font700">{{blog.author.name}}</h5>
-              {{blog.author.bio}}
+            <img class="mr-3 my-3 fa-5x text-primary rounded-circle " width="100px" height="100px" src="{{blog.author.user.picture.url}}">
+            <div class="media-body ms-3">
+              <h5 class="mt-0 fw-bold fs-5"><a href="/profile/{{blog.author.user.user.username}}">{{blog.author.title}}</a></h5>
+              {{blog.author.user.bio}}
             </div>
           </div>
+          <hr class="mb40" />
+              <h4 class="mb40 text-uppercase font500">Comments</h4>
+              {% for c in comments %}
+              <div class="media mb40">
+                <i class="d-flex mr-3 fa fa-user-circle-o fa-3x"></i>
+                <div class="media-body ms-3">
+                  <h5 class="mt-0 font400 clearfix fw-bold">
+                    {{c.name}}
+                  </h5>
+                  {{c.message}}
+                </div>
+              </div>
+              {% endfor %}
           <hr class="mb40" />
           <h4 class="mb40 text-uppercase font500">Post a comment</h4>
           <form role="form" method="POST" action=".">
@@ -45,7 +67,7 @@
               <label>Comment</label>
               <textarea class="form-control" rows="5" placeholder="Comment" name="message"></textarea>
             </div>
-            <div class="clearfix float-right">
+            <div class="clearfix float-right mt-2">
               <button type="submit" name="submit" class="btn btn-primary btn-lg">
                 Submit
               </button>
@@ -59,9 +81,9 @@
         <h4 class="sidebar-title">Latest News</h4>
         <ul class="list-unstyled">
           {% for b in similar_blogs %}
-          <li class="media">
-            <img class="d-flex mr-3 img-fluid" width="64" src="{{b.image.url}}"
-              alt="Generic placeholder image" />
+          <li class="">
+            <img class="d-flex mr-3 img-fluid w-100" src="{{b.image.url}}"
+              alt="Generic placeholder image" style="height: 120px;"/>
             <div class="media-body">
               <h5 class="mt-0 mb-1">
                 <a href="/blog/{{b.slug}}">{{b.title}}</a>

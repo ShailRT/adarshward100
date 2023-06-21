@@ -313,3 +313,13 @@ Template sidebar
   width: 300px !important;
   height: 200px !important;
 }
+.media {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-align: start;
+	align-items: center;
+}
+.media-body {
+	-ms-flex: 1;
+	flex: 1;
+}

@@ -4,6 +4,7 @@ from .forms import CommentForm
 from django.core.paginator import Paginator
 
 def blog_detail(request, pk):
+    blog = Blog.objects.filter(slug=pk).first()
     if request.method == "POST":
         name = request.POST['name']
         email = request.POST['email']
@@ -13,11 +14,12 @@ def blog_detail(request, pk):
         return redirect('blog-detail', pk)
     
     else:
-        blog = Blog.objects.filter(slug=pk).first()
+        comments = Message.objects.filter(blog=blog, appropriate=True)
         similar_blogs = Blog.objects.all()[:2]
         context = {
             'blog': blog,
             'similar_blogs': similar_blogs,
+            'comments': comments
         }
         return render(request, 'blog.html', context)
     
