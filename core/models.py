@@ -30,6 +30,7 @@ class Navbar(models.Model):
 class Gallery(models.Model):
     title = models.CharField(max_length=120)
     on_gallery = models.BooleanField(default=False)
+    on_home_slider = models.BooleanField(default=False)
     image = models.ImageField(upload_to='gallery/')
 
     class Meta:
@@ -73,7 +74,7 @@ class Author(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField()
-    image = models.ImageField(upload_to='news/')
+    image = models.ImageField(upload_to='news/', null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = RichTextField()
     gallery = models.ManyToManyField(Gallery, related_name='news_gallery', null=True, blank=True)

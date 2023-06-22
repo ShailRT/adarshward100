@@ -6,7 +6,7 @@ class Blog(models.Model):
     title = models.CharField(max_length=120)
     slug = models.SlugField()
     category = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='blog', null=True, blank=True)
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = RichTextField()
     gallery = models.ManyToManyField(Gallery, related_name='blog_gallery', null=True, blank=True)

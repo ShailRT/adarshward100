@@ -7,10 +7,12 @@ def home(request):
     page = Page.objects.filter(title="Home").first()
     news = News.objects.all()[:9]
     anouncements = Anouncement.objects.all()[:9]
+    home_slider = Gallery.objects.filter(on_home_slider=True)
     context = {
         'page': page,
         'news': news,
         'anouncements': anouncements,
+        'home_slider': home_slider,
     }
     return render(request, 'home.html', context)
 

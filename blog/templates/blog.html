@@ -5,7 +5,9 @@
   <div class="row">
     <div class="col-md-9 mb40">
       <article>
+        {% if blog.image %}
         <img src="{{blog.image.url}}" alt class="img-fluid mb30 w-100 p-0 news-img" />
+        {% endif %}
         <div class="post-content">
           <h3>{{blog.title}}</h3>
           <ul class="post-meta list-inline">

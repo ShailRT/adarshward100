@@ -6,23 +6,36 @@
 {% block content %}
 <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
+        {% for i in home_slider%}
+        {% if forloop.counter0 == 0 %}
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        {% else %}
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="{{forloop.counter0}}"
+            aria-label="Slide {{ forloop.counter }}"></button>
+        {% endif %}
+        {% endfor %}
+
+        {% comment %} <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
             aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
             aria-label="Slide 2"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
-            aria-label="Slide 3"></button>
+            aria-label="Slide 3"></button> {% endcomment %}
     </div>
     <div class="carousel-inner">
+        {% for s in home_slider %}
+        {% if forloop.counter0 == 0 %}
         <div class="carousel-item active">
-            <img src="{% static 'assets/img/home-slider/img4.jpeg' %}" class="d-block slider-img" alt="...">
+            <img src="{{s.image.url}}" class="d-block slider-img" alt="{{s.title}}">
         </div>
+        {% else %}
         <div class="carousel-item">
-            <img src="{% static 'assets/img/home-slider/image2.jpg' %}" class="d-block slider-img" alt="...">
+            <img src="{{s.image.url}}" class="d-block slider-img" alt="{{s.title}}">
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'assets/img/home-slider/image3.jpg' %}" class="d-block slider-img" alt="...">
-        </div>
+        {% endif %}
+
+        {% endfor %}
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
         data-bs-slide="prev">
