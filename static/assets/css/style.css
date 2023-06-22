@@ -5,10 +5,10 @@ html {
     color: #333;
     cursor: default;
 }
-.slider-img{
-    height: 500px;
-    width: 100%;
-
+.slider-img {
+	max-height: 500px;
+	width: 100%;
+	min-height: 250px;
 }
 .header-bottom {
     padding: 6px 0 6px 0;
