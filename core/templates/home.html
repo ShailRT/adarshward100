@@ -92,23 +92,14 @@
 </div>
 
 <section class="hidden" id="projects">
-    <h2 >Achievments</h2>
-    <div  class="project1" >
-        <img src="/static/assets/img/home-slider/mailchimp-Cy5dya5MAlI-unsplash.jpg" alt="Project 1">
-        <h3>Achievment 1</h3>
-        <p>Description of Project 1</p>
+    <h2>Work Done in the Society by Counselor</h2>
+    {% for achi in achievements%}
+    <div class="project1">
+        <img src="{{achi.image.url}}" alt="Project 1">
+        <h3>{{achi.title}}</h3>
+        <p>{{achi.date}}</p>
     </div>
-    <div  class="project2" >
-        <img src="/static/assets/img/home-slider/mailchimp-Cy5dya5MAlI-unsplash.jpg" alt="Project 2">
-        <h3>Achievment 1</h3>
-        <p>Description of Project 2</p>
-      
-    </div>
-    <div  class="project3" >
-        <img src="/static/assets/img/home-slider/mailchimp-Cy5dya5MAlI-unsplash.jpg" alt="Project 3">
-        <h3>Achievment 1</h3>
-        <p>Description of Project 3</p>
-    </div>
+    {% endfor %}
 </section>
 
 

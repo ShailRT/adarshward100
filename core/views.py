@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Page, News, Gallery, News, Profile, Anouncement
+from .models import Page, News, Gallery, News, Profile, Anouncement, Achievement, Author
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 
@@ -8,11 +8,15 @@ def home(request):
     news = News.objects.all()[:9]
     anouncements = Anouncement.objects.all()[:9]
     home_slider = Gallery.objects.filter(on_home_slider=True)
+    author = Author.objects.filter(title="Counselor").first()
+    achievements = Achievement.objects.filter(person=author)[:5]
+    print(len(achievements), "hi")
     context = {
         'page': page,
         'news': news,
         'anouncements': anouncements,
         'home_slider': home_slider,
+        'achievements': achievements,
     }
     return render(request, 'home.html', context)
 
