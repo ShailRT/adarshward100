@@ -31,7 +31,8 @@ class Gallery(models.Model):
     title = models.CharField(max_length=120)
     on_gallery = models.BooleanField(default=False)
     on_home_slider = models.BooleanField(default=False)
-    image = models.ImageField(upload_to='gallery/')
+    embed_url = models.TextField(blank=True, null=True)
+    image = models.ImageField(upload_to='gallery/', blank=True, null=True)
 
     class Meta:
         ordering = ['on_gallery']

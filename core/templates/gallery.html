@@ -14,11 +14,20 @@
      <div class="container-lg bg-light">
         <div class="row gy-4 row-cols-1 row-cols-sm-2 row-cols-md-3">
          {% for gal in gallery %}
+         {% if gal.image%}
            <div class="col">
               <img src="{{gal.image.url}}" class="gallery-item" name="{{gal.title}}" alt="gallery">
               <h4 class="text-center mt-2">{{gal.title|capfirst}}</h4>
            </div>
-         {% endfor %}
+          {% endif %}
+          {% if gal.embed_url %}
+          <div class="col embed-video">
+           {{gal.embed_url|safe}}
+           <h4 class="text-center">{{gal.title|capfirst}}</h4>
+          </div>
+          {% endif %}
+         {% endfor %} 
+
         </div>
      </div>
   </section>

@@ -323,3 +323,11 @@ Template sidebar
 	-ms-flex: 1;
 	flex: 1;
 }
+.embed-video iframe{
+  background-color: #ffffff;
+  padding: 15px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  cursor: pointer;
+  height: 300px;
+  width: 100%;
+}
