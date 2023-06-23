@@ -78,7 +78,7 @@ class News(models.Model):
     author = models.ForeignKey(Author, on_delete=models.CASCADE)
     description = RichTextField()
     gallery = models.ManyToManyField(Gallery, related_name='news_gallery', null=True, blank=True)
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField(auto_now_add=False)
 
     class Meta:
         ordering = ['-date_created']

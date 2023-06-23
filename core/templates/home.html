@@ -72,7 +72,7 @@
                 <div class="tab-pane fade show active" id="ex1-tabs-1" role="tabpanel" aria-labelledby="ex1-tab-1">
                     <ul class="list-group">
                         {% for n in news %}
-                        <li class="list-group-item"><a href="{% url 'news_detail' pk=n.slug %}">{{n.title}}</a></li>
+                        <li class="list-group-item"><a href="{% url 'news_detail' pk=n.slug %}">{{n.title}}</a> <p >{{n.date_created}}</p></li>
                         {% endfor %}
                     </ul>
                 </div>
