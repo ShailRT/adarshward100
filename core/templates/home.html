@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block style %} <link rel="stylesheet" href="/static/assets/css/achievment.css"> {% endblock style %}
 {% block title %}Adarsh Ward 100{% endblock title %}
 
 {% block content %}
@@ -90,6 +90,26 @@
         </div>
     </div>
 </div>
+
+<section class="hidden" id="projects">
+    <h2 >Achievments</h2>
+    <div  class="project1" >
+        <img src="/static/assets/img/home-slider/mailchimp-Cy5dya5MAlI-unsplash.jpg" alt="Project 1">
+        <h3>Achievment 1</h3>
+        <p>Description of Project 1</p>
+    </div>
+    <div  class="project2" >
+        <img src="/static/assets/img/home-slider/mailchimp-Cy5dya5MAlI-unsplash.jpg" alt="Project 2">
+        <h3>Achievment 1</h3>
+        <p>Description of Project 2</p>
+      
+    </div>
+    <div  class="project3" >
+        <img src="/static/assets/img/home-slider/mailchimp-Cy5dya5MAlI-unsplash.jpg" alt="Project 3">
+        <h3>Achievment 1</h3>
+        <p>Description of Project 3</p>
+    </div>
+</section>
 
 
 {% endblock content %}
