@@ -86,6 +86,18 @@ class News(models.Model):
     def __str__(self):
         return self.title
     
+class Achievement(models.Model):
+    title = models.CharField(max_length=120)
+    person = models.ForeignKey(Author, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='achievement')
+    date = models.DateField()
+
+    def __str__(self):
+        return self.title
+
+    
+
+
     
 
     
